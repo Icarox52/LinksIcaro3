@@ -29,7 +29,7 @@ Um hub pessoal moderno com todos os meus links importantes, construído com tecn
 1. Acesse o site online: [Links](https://icarox52.github.io/LinksIcaro3/)
 2. Ou clone localmente:
 ```bash
-git clone https://github.com/Icarox52/Links.git
+git clone https://github.com/Icarox52/LinksIcaro3.git
 ```
 
 ## 📌 Contato
