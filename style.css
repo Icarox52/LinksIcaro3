@@ -1,0 +1,356 @@
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #f5f5f5;
+            --primary-color: #6d28d9;
+            --secondary-color: #1e1e1e;
+            --hover-color: #2e2e2e;
+            --card-color: #1a1a1a;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --transition-time: 0.4s;
+        }
+
+        .light-mode {
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --primary-color: #7c3aed;
+            --secondary-color: #e2e8f0;
+            --hover-color: #f1f5f9;
+            --card-color: #ffffff;
+            --shadow-color: rgba(149, 157, 165, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color var(--transition-time) ease, 
+                        color var(--transition-time) ease,
+                        border-color var(--transition-time) ease;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 640px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 4px 6px var(--shadow-color);
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .bio {
+            font-size: 0.875rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            max-width: 24rem;
+        }
+
+        .theme-toggle {
+            background: var(--card-color);
+            border: none;
+            color: var(--text-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 100;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.05);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
+
+        .links {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .link-card {
+            background-color: var(--card-color);
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            border: 1px solid var(--secondary-color);
+            transform: translateY(0);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            will-change: transform;
+        }
+
+        .link-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px var(--shadow-color);
+            border-color: var(--primary-color);
+        }
+
+        .link-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+        }
+
+        .link-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .link-title {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .link-description {
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        .link-arrow {
+            color: var(--text-color);
+            opacity: 0.5;
+        }
+
+        footer {
+            margin-top: 2rem;
+            font-size: 0.75rem;
+            opacity: 0.6;
+            text-align: center;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 1rem 0;
+            }
+
+            .link-card {
+                padding: 1rem;
+            }
+        }
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+.container {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+header {
+    transform-origin: top;
+    animation: scaleIn 0.6s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.avatar {
+    transform: scale(0);
+    animation: scaleIn 0.5s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+h1 {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+    animation-delay: 1s;
+}
+
+.bio {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+    animation-delay: 1.2s;
+}
+
+.links {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 1.4s;
+}
+
+.link-card {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.link-card:nth-child(1) {
+    animation: fadeIn 0.6s ease-out forwards;
+    animation-delay: 1.6s;
+}
+
+.link-card:nth-child(2) {
+    animation: fadeIn 0.6s ease-out forwards;
+    animation-delay: 1.8s;
+}
+
+.link-card:nth-child(3) {
+    animation: fadeIn 0.6s ease-out forwards;
+    animation-delay: 2s;
+}
+
+.link-card:nth-child(4) {
+    animation: fadeIn 0.6s ease-out forwards;
+    animation-delay: 2.2s;
+}
+
+.theme-toggle {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+    animation-delay: 2.4s;
+}
+
+
+.typewriter {
+  font-family: monospace;
+  font-size: 18px;
+  color: #333;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+  color: #6d28d9;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+  /* Efeito de gradiente animado */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .typewriter-container {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0a0a0a;
+            overflow: hidden;
+        }
+
+        .typewriter {
+            background: linear-gradient(90deg, #FF4D4D, #F9CB28, #4DFF4D, #4DA6FF, #FF4DFF);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientAnimation 8s ease infinite;
+            display: inline-block;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.5rem;
+            background: linear-gradient(90deg, #FF4D4D, #F9CB28);
+            animation: blink 1s infinite, gradientAnimation 8s ease infinite;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Animação de entrada */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .typewriter-wrapper {
+            animation: fadeInScale 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
