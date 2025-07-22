@@ -339,7 +339,7 @@ h1 {
             50% { opacity: 0; }
         }
 
-        /* Animação de entrada */
+
         @keyframes fadeInScale {
             from {
                 opacity: 0;
