@@ -42,7 +42,7 @@
             "12 anos",
             "Desenvolvedor FullStack",
             "HTML + CSS + JS",
-            "Node.js + Bootstrap + Tailwind + React",
+            "Node.js + Tailwind + React + MySQL",
             "Aprendendo mais cada dia!"
         ];
         
